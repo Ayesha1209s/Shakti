@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 160 15% 15%;
+    
+    --emblem-opacity: 0.05;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 15% 15%;
+
+    /* Cool serious green for primary elements */
+    --primary: 160 70% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Darker teal for secondary */
+    --secondary: 175 45% 35%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 160 10% 96%;
+    --muted-foreground: 160 10% 45%;
+
+    /* Mint accent for highlights */
+    --accent: 165 50% 65%;
+    --accent-foreground: 160 15% 15%;
+
+    /* Light green tint for support */
+    --support: 150 40% 96%;
+    --support-foreground: 160 15% 15%;
+
+    /* Very light green for report section */
+    --report: 155 35% 97%;
+    --report-foreground: 160 15% 15%;
+
+    /* Dark forest green for footer */
+    --footer: 158 65% 18%;
+    --footer-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 160 20% 88%;
+    --input: 160 20% 88%;
+    --ring: 160 70% 28%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 160 70% 28%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 165 50% 65%;
+    --sidebar-primary-foreground: 160 15% 15%;
+    --sidebar-accent: 160 60% 35%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 160 50% 22%;
+    --sidebar-ring: 165 50% 65%;
+  }
+
+  .dark {
+    --background: 160 20% 8%;
+    --foreground: 160 10% 95%;
+    
+    /* Make national emblem more transparent in dark mode */
+    --emblem-opacity: 0.02;
+
+    --card: 160 18% 12%;
+    --card-foreground: 160 10% 95%;
+
+    --popover: 160 18% 12%;
+    --popover-foreground: 160 10% 95%;
+
+    /* Brighter green for dark mode primary */
+    --primary: 160 70% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Medium teal for secondary */
+    --secondary: 175 45% 42%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 160 15% 18%;
+    --muted-foreground: 160 10% 65%;
+
+    /* Bright mint for dark mode accent */
+    --accent: 165 50% 55%;
+    --accent-foreground: 160 20% 8%;
+
+    /* Dark green for support */
+    --support: 150 40% 20%;
+    --support-foreground: 160 10% 95%;
+
+    /* Dark green for report section */
+    --report: 155 35% 18%;
+    --report-foreground: 160 10% 95%;
+
+    /* Slightly lighter forest green for footer in dark */
+    --footer: 158 65% 22%;
+    --footer-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 160 10% 95%;
+
+    --border: 160 20% 22%;
+    --input: 160 20% 22%;
+    --ring: 160 70% 35%;
+
+    --sidebar-background: 160 70% 20%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 165 50% 55%;
+    --sidebar-primary-foreground: 160 20% 8%;
+    --sidebar-accent: 160 60% 28%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 160 50% 15%;
+    --sidebar-ring: 165 50% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
