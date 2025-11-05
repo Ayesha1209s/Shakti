@@ -4,23 +4,27 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import WomanUser, Officer
 from django.contrib.auth.hashers import check_password
-
+from django.shortcuts import render
+ 
 
 # ---------------- WOMAN USER SIGNUP ----------------
 @csrf_exempt
 def signup_user(request):
-    name = request.POST.get('name')
-    phone = request.POST.get('phone')
-    email = request.POST.get('email')
-    password = request.POST.get('password')
+    if request.method == "POST":
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
 
-    if WomanUser.objects.filter(phone=phone).exists():
-        return JsonResponse({"status": "error", "message": "Phone number already registered"})
-    if WomanUser.objects.filter(email=email).exists():
-        return JsonResponse({"status": "error", "message": "Email already registered"})
+        # Add validation just in case
+        if not name or not phone or not email or not password:
+            return JsonResponse({"error": "All fields are required"}, status=400)
 
-    WomanUser.objects.create(name=name, phone=phone, email=email, password=password)
-    return JsonResponse({"status": "success", "message": "User Signup Successful!"})
+        WomanUser.objects.create(name=name, phone=phone, email=email, password=password)
+        return JsonResponse({"message": "User registered successfully!"})
+
+    return JsonResponse({"error": "Invalid request method"}, status=405)
+
 
 
 # ---------------- WOMAN USER LOGIN ----------------
